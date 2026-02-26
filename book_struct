@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+// Structure for Review
+struct Review
+{
+    char reviewer[50];
+    int rating;
+};
+
+// Structure for Book
+struct Book
+{
+    char title[50];
+    char author[50];
+    struct Review reviews[3];
+};
+
+// Function to input book details
+void inputBook(struct Book *b)
+{
+    int i;
+
+    printf("Enter Book Title: ");
+    scanf(" %[^\n]", b->title);
+
+    printf("Enter Author Name: ");
+    scanf(" %[^\n]", b->author);
+
+    for(i = 0; i < 3; i++)
+    {
+        printf("\nEnter Reviewer %d Name: ", i+1);
+        scanf(" %[^\n]", b->reviews[i].reviewer);
+
+        printf("Enter Rating (out of 5): ");
+        scanf("%d", &b->reviews[i].rating);
+    }
+}
+
+// Function to display book details
+void displayBook(struct Book b)
+{
+    int i;
+
+    printf("\nBook Title: %s\n", b.title);
+    printf("Author: %s\n", b.author);
+
+    printf("\nReviews:\n");
+    for(i = 0; i < 3; i++)
+    {
+        printf("Reviewer: %s\n", b.reviews[i].reviewer);
+        printf("Rating: %d\n", b.reviews[i].rating);
+    }
+}
+
+int main()
+{
+    struct Book b;
+
+    inputBook(&b);
+    displayBook(b);
+
+    return 0;
+}
