@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+struct emp
+{
+    int eno;
+    char ename[50];
+    float esal;
+};
+
+void display(struct emp s[], int n)
+{
+    int i;
+    printf("\nEmployee details:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("\nEmployee no = %d", s[i].eno);
+        printf("\nEmployee name = %s", s[i].ename);
+        printf("\nEmployee salary = %.2f\n", s[i].esal);
+    }
+}
+
+int main()
+{
+    int i, n;
+
+    printf("No. of employees? ");
+    scanf("%d", &n);
+
+    struct emp s[n];
+
+    for(i = 0; i < n; i++)
+    {
+        printf("\nEnter employee details:\n");
+
+        printf("Emp no? ");
+        scanf("%d", &s[i].eno);
+
+        printf("Emp name? ");
+        scanf("%s", s[i].ename);
+
+        printf("Emp salary? ");
+        scanf("%f", &s[i].esal);
+    }
+
+    display(s, n);
+
+    return 0;
+}
