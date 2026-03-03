@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+struct emp
+{
+    int eno;
+    char ename[50];
+    float esal;
+};
+
+void display(struct emp e)   // structure passed to function
+{
+    printf("\nEmployee Details:\n");
+    printf("Employee no = %d\n", e.eno);
+    printf("Employee name = %s\n", e.ename);
+    printf("Employee salary = %.2f\n", e.esal);
+}
+
+int main()
+{
+    struct emp e;
+
+    printf("Enter employee number: ");
+    scanf("%d", &e.eno);
+
+    printf("Enter employee name: ");
+    scanf("%s", e.ename);
+
+    printf("Enter employee salary: ");
+    scanf("%f", &e.esal);
+
+    display(e);   // passing structure
+
+    return 0;
+}
